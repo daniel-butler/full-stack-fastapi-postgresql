@@ -41,8 +41,9 @@ def create_item(
     """
     Create new item.
     """
-    item = crud.item.create(db_session=db, item_in=item_in, owner_id=current_user.id)
-    return item
+    return crud.item.create(
+        db_session=db, item_in=item_in, owner_id=current_user.id
+    )
 
 
 @router.put("/{id}", response_model=Item)
