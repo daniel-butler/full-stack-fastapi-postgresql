@@ -11,8 +11,7 @@ def random_lower_string():
 
 
 def get_server_api():
-    server_name = f"http://{config.SERVER_NAME}"
-    return server_name
+    return f"http://{config.SERVER_NAME}"
 
 
 def get_superuser_token_headers():
@@ -26,6 +25,5 @@ def get_superuser_token_headers():
     )
     tokens = r.json()
     a_token = tokens["access_token"]
-    headers = {"Authorization": f"Bearer {a_token}"}
     # superuser_token_headers = headers
-    return headers
+    return {"Authorization": f"Bearer {a_token}"}
